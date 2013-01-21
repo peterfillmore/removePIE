@@ -1,21 +1,22 @@
 removePIE
 =========
 
-This is an iOS tool which flips the MH_PIE bit in an application. This disables the Address Space Layout Randomization of an application.
+This is an iOS tool which flips the MH_PIE bit in an application. 
+This disables the Address Space Layout Randomization of an application.
 
 Building
 ========
-	Building has been set-up to use OS-X, xCode and the iOS 6.0 SDK in default directories. 
-	execute "make" from the command line to execute the included makefile.
-	This file includes the location of the iOS 6.0 SDK and the location of the ARM compiler of the SDK. The makefile also signs the compiled executable using the "codesign" tool provided by xCode.
+Building has been set-up to use OS-X, xCode and the iOS 6.0 SDK in 
+default directories. execute "make" from the command line to execute the included makefile.
+This file includes the location of the iOS 6.0 SDK and the location of the ARM compiler of the SDK. The makefile also signs the compiled executable using the "codesign" tool provided by xCode.
 Alterations will need to be made to the makefile for compiling on Windows or Linux systems.
 
 Usage
 =====
-	copy the compiled executable using scp i.e 
-	desktop $ scp ./removePIE root@<IP address of phone>:/usr/bin/removePIE
-	root # ./removePIE <application binary>
-	the <application binary> is most likely located in a sub-directory of /private/var/mobile/Applications/ on the iphone 
+copy the compiled executable using scp i.e 
+desktop $ scp ./removePIE root@<IP address of phone>:/usr/bin/removePIE
+root # ./removePIE <application binary>
+the <application binary> is most likely located in a sub-directory of /private/var/mobile/Applications/ on the iphone 
 
 License
 =======
