@@ -49,20 +49,23 @@ int main(int argc, char *argv[]){
 			return EXIT_FAILURE;
 		}	
 		fseek(fp, 0, SEEK_SET); //set fp back to 0 to get full copy
-		printf("backing up application binary...\n");
+		printf("\nbacking up application binary...\n");
 		fcopy(fp, fw);
 		fclose(fw);
-		printf("mach_header:");
+		printf("\nbinary backed up to:\t%s\n", fwName);
+		printf("\nmach_header:\t");
 		hexify((unsigned char *)&currentHeader,sizeof(currentHeader));	
-		printf("\nDisabling ASLR/PIE\n");
+		printf("\noriginal flags:\t");
+		hexify((unsigned char *)&currentHeader.flags, sizeof(currentHeader.flags));
+		printf("\nDisabling ASLR/PIE ...\n");
 		currentHeader.flags &= ~MH_PIE;
-		printf("altered header:");
-		hexify((unsigned char *)&currentHeader.flags, 4);
+		printf("new flags:\t");
+		hexify((unsigned char *)&currentHeader.flags, sizeof(currentHeader.flags));
 		
 		fseek(fp, 0, SEEK_SET);
 		if((fwrite(&currentHeader, sizeof(char), 28, fp)) == (int)NULL)
 		{
-			printf("Error writing to binary file");
+			printf("Error writing to application file %s\n",fwName);
 		}
 		printf("\nASLR has been disabled for %s\n", argv[1]);
 		//exit and close memory
