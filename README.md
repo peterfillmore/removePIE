@@ -17,8 +17,11 @@ desktop $ scp ./removePIE root@<IP address of phone>:/usr/bin/removePIE
 root # ./removePIE <application binary>
 the <application binary> is most likely located in a sub-directory of /private/var/mobile/Applications/ on the iphone 
 
-Issues have been found with applications on iOS 5.1.1, I have found that you have to resign the application binary using the "codesign" tool in xCode to get it to execute. I have no idea as yet to why ldone or ldid doesn't work. iOS 6.0.1 did not require re-signing of the application binary.
+Issues
+======
+Issues have been found with applications on ios 5.1.1, i have found that you have to resign the application binary using the "codesign" tool in xcode to get it to execute. i have no idea as yet to why ldone or ldid doesn't work. ios 6.0.1 did not require re-signing of the application binary.
 '
+
 License
 =======
 
