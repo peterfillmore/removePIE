@@ -1,10 +1,9 @@
-SDKVER?=6.0
-
 CSNAME="iPhone Developer"
 
 DEVELOPER=/Applications/Xcode.app/Contents/Developer
 PLATFORM=$(DEVELOPER)/Platforms/iPhoneOS.platform/Developer
-SDK=$(PLATFORM)/SDKs/iPhoneOS$(SDKVER).sdk
+SDKVER = $(shell ls $(PLATFORM)/SDKS/ | tail -n 1)
+SDK=$(PLATFORM)/SDKs/$(SDKVER)
 
 CC=$(PLATFORM)/usr/bin/arm-apple-darwin10-llvm-gcc-4.2 
 CFLAGS=-ggdb -Wall -isysroot $(SDK) -I../include
