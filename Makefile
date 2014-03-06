@@ -2,7 +2,7 @@ CSNAME="iPhone Developer"
 
 DEVELOPER=/Applications/Xcode.app/Contents/Developer
 PLATFORM=$(DEVELOPER)/Platforms/iPhoneOS.platform/Developer
-SDKVER = $(shell ls $(PLATFORM)/SDKS/ | tail -n 1)
+SDKVER = $(shell ls $(PLATFORM)/SDKs/ | tail -n 1)
 SDK=$(PLATFORM)/SDKs/$(SDKVER)
 
 CC=$(PLATFORM)/usr/bin/arm-apple-darwin10-llvm-gcc-4.2 
